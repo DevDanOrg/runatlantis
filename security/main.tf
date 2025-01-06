@@ -29,6 +29,6 @@ terraform {
   }
 }
 
-# resource "aws_s3_bucket" "devdan_bucket" {
-#   bucket = "devdan-security"
-# }
+resource "aws_s3_bucket" "devdan_bucket" {
+  bucket = "devdan-security"
+}
