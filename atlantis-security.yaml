@@ -19,10 +19,10 @@ workflow:
   makeworkflow:
     plan:
       steps:
-        - run: make clean_state atlantis-init atlantis-plan
+        - run: make clean_state init plan
     apply:
       steps:
-        - run: make atlantis-init atlantis-apply
+        - run: make init apply
     import:
       steps:
         - run: rm -rf .terraform terraform.tfstate*

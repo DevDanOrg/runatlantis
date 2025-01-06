@@ -1,5 +1,5 @@
-ENV := $(PWD)/../.env
-include $(ENV)
+# ENV := $(PWD)/../.env
+# include $(ENV)
 
 .PHONY: init apply plan clean-state validate
 
