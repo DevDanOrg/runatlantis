@@ -1,8 +1,7 @@
 repos:
   - id: /.*/
-    repo_config_file: "./atlantis.yaml"
+    allowed_overrides: [workflow]
     workflow: makeworkflow
-    allowed_overrides: [apply_requirements, workflow]
     allow_custom_workflows: true
     pre_workflow_hooks:
       - run: "cat ~/workspace/git/runatlantis/atlantis.yaml > atlantis.yaml"
