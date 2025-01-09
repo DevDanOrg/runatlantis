@@ -6,4 +6,4 @@ repos:
     allow_custom_workflows: true
     pre_workflow_hooks:
       - run: "echo '################  PRE WORKFLOW HOOK   ###############'"
-      - run: "ls ~/"
+      - run: "cat ~/dev/runatlantis/atlantis.yaml > atlantis.yaml"
