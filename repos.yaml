@@ -1,14 +1,11 @@
 repos:
   - id: /.*/
-    workflow: runatlantis
+    workflow: default
     apply_requirements: [approved, mergeable]
     allowed_overrides: [apply_requirements, workflow]
     allow_custom_workflows: true
-workflow:
-  runatlantis:
-    plan:
-      steps:
-        - run: "echo '################  TESTING RUNATLANTIS WORKFLOW   ###############'"
-    apply:
-      steps:
-        - run: ""
+    pre_workflow_hooks:
+      - run: "echo '################  PRE WORKFLOW HOOK   ###############'"
+      - run: "cat ~/workspace/git/runatlantis/atlantis.yaml > atlantis.yaml"
+    post_workflow_hooks:
+      - run: "echo '################  POST WORKFLOW HOOK   ###############'"

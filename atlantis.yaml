@@ -3,6 +3,7 @@ projects:
 - name: runatlantis
   dir: .
   branch: /(main|master)/
+  workflow: makeworkflow
   autoplan:
     enabled: true
     when_modified:
@@ -11,4 +12,12 @@ projects:
       - './modules/**/*.json'
       - '.terraform.lock.hcl'
       - '*.tfvars'
-  apply_requirements: []
+  apply_requirements: [approved, mergeable]
+workflow:
+  makeworkflow:
+    plan:
+      steps:
+        - run: "echo '################  TESTING RUNATLANTIS WORKFLOW   ###############'"
+    apply:
+      steps:
+        - run: ""
