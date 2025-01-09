@@ -15,17 +15,3 @@ projects:
       - '*.tfvars'
     enabled: true
   apply_requirements: [mergeable, approved]
-workflow:
-  makeworkflow:
-    plan:
-      steps:
-        - env:
-            name: TF_WORKSPACE
-            command: echo $WORKSPACE
-        - run: make clean_state init plan
-    apply:
-      steps:
-        - run: make init apply
-    import:
-      steps:
-        - run: rm -rf .terraform terraform.tfstate*
