@@ -1,24 +1,27 @@
 version: 3
 projects:
-- name: security
-  dir: security
+- name: runatlantis
+  dir: .
   terraform_version: v1.8.1
   branch: /main/
+  workspace: runatlantis
   workflow: makeworkflow
   autoplan:
     when_modified:
-      - '../modules/**/*.tf'
-      - '../modules/**/*.sh'
-      - '../modules/**/*.json'
+      - './modules/**/*.tf'
+      - './modules/**/*.sh'
+      - './modules/**/*.json'
       - '.terraform.lock.hcl'
       - '*.tfvars'
-      - '../atlantis-security.yaml'
     enabled: true
   apply_requirements: [mergeable, approved]
 workflow:
   makeworkflow:
     plan:
       steps:
+        - env:
+            name: TF_WORKSPACE
+            command: echo $WORKSPACE
         - run: make clean_state init plan
     apply:
       steps:
