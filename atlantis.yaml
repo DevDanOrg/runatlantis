@@ -11,4 +11,4 @@ projects:
       - './modules/**/*.json'
       - '.terraform.lock.hcl'
       - '*.tfvars'
-  apply_requirements: [mergeable, approved]
+  apply_requirements: []
