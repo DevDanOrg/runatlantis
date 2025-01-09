@@ -6,6 +6,7 @@ set -e
 if [ -f atlantis ]; then
     echo "atlantis binary already exists running atlantis..."
 
+    # env
     . ./atlantis.env
 
     ./atlantis server \
