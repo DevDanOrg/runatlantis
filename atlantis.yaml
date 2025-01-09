@@ -2,14 +2,13 @@ version: 3
 projects:
 - name: runatlantis
   dir: .
-  branch: /main/
-  workflow: makeworkflow
+  branch: /(main|master)/
   autoplan:
+    enabled: true
     when_modified:
       - './modules/**/*.tf'
       - './modules/**/*.sh'
       - './modules/**/*.json'
       - '.terraform.lock.hcl'
       - '*.tfvars'
-    enabled: true
   apply_requirements: [mergeable, approved]
