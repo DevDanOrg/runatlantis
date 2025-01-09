@@ -5,9 +5,7 @@ repos:
     allowed_overrides: [apply_requirements, workflow]
     allow_custom_workflows: true
     pre_workflow_hooks:
-      - run: "cat ~/dev/runatlantis/atlantis.yaml"
-      - run: "cat ~/dev/runatlantis/atlantis.yaml > atlantis.yaml"
-
+      - run: "cat /config/atlantis.yaml > atlantis.yaml"
 workflows:
   makeworkflow:
     plan:
