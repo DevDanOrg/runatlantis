@@ -22,9 +22,9 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "terraform-state-manager-bucket"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
+    bucket         = "terraform-state-manager-bucket"
+    key            = "terraform.tfstate"
+    region         = "us-east-1"
     dynamodb_table = "terraform-state"
   }
 }
