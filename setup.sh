@@ -6,9 +6,8 @@ set -e
 if [ -f atlantis ]; then
     echo "atlantis binary already exists running atlantis..."
 
-    # env vars
     . ./atlantis.env
-    
+
     ./atlantis server \
     --atlantis-url="$URL" \
     --gh-user="$USERNAME" \
