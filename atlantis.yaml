@@ -13,3 +13,13 @@ projects:
       - '*.tfvars'
   apply_requirements: [approved, mergeable]
   workflow: makeworkflow
+workflows:
+  makeworkflow:
+    plan:
+      steps:
+        - run: terraform init
+        - run: terraform validate
+        - run: rm -f tfplan && terraform plan -out=tfplan > /dev/null && terraform show tfplan
+    apply:
+      steps:
+        - run: terraform apply tfplan  
