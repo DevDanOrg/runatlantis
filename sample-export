@@ -1,0 +1,11 @@
+function export_runatlantis_env() {
+  export ATLANTIS_GH_USER="github-username"
+  export ATLANTIS_REPO_ALLOWLIST="github.com/{your-username}}/{repo}}"
+  export ATLANTIS_ATLANTIS_URL="ngrok-url"
+  export ATLANTIS_GH_TOKEN="github-token"
+  export ATLANTIS_GH_WEBHOOK_SECRET="webhook-secret"
+  export ATLANTIS_REPO_CONFIG="$HOME/repos.yaml"
+  export DEFAULT_CONFTEST_VERSION="conftest-version"
+  export NGROK_AUTHTOKEN="ngrok-token"
+}
+alias exae="export_runatlantis_env"
