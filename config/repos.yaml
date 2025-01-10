@@ -10,7 +10,7 @@ workflows:
   makeworkflow:
     plan:
       steps:
-        - run: "echo '################  TESTING RUNATLANTIS WORKFLOW   ###############'"
+        - run: make clean-state atlantis-init atlantis-plan
     apply:
       steps:
-        - run: ""
+        - run: make atlantis-init atlantis-apply
