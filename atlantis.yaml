@@ -11,6 +11,11 @@ projects:
       - './modules/**/*.json'
       - '.terraform.lock.hcl'
       - '*.tfvars'
+      - 'main.tf'
+      - 'variables.tf'
+      - 'terraform.tfvars'
+      - 'terraform.tfvars.json'
+      - './atlantis.yaml'
   apply_requirements: [approved, mergeable]
   workflow: makeworkflow
 workflows:
