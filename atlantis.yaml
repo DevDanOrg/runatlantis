@@ -17,7 +17,9 @@ workflows:
   makeworkflow:
     plan:
       steps:
-        - run: make clean-state atlantis-init atlantis-plan
+        - run: terraform init
+        - run: terraform validate
+        - run: rm -f tfplan && terraform plan -out=tfplan > /dev/null && terraform show tfplan
     apply:
       steps:
-        - run: make atlantis-init atlantis-apply
+        - run: terraform apply tfplan  
