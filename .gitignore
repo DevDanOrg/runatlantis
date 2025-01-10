@@ -2,7 +2,6 @@ atlantis
 *.env
 *.tar.gz*
 ngrok.env
-setup.sh
 
 # Local .terraform directories
 **/.terraform/*
