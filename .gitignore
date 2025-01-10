@@ -2,7 +2,7 @@ atlantis
 *.env
 *.tar.gz*
 ngrok.env
-
+*tfplan
 # Local .terraform directories
 **/.terraform/*
 

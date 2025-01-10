@@ -22,4 +22,4 @@ services:
       ATLANTIS_REPO_CONFIG: '${REPO_CONFIG}'
     volumes:
       - $PWD/config/:/config/
-      - $HOME/.aws:/root/.aws:ro
+      - $HOME/.aws:/$HOME/.aws:ro
