@@ -1,0 +1,25 @@
+services:
+  ngrok:
+    image: ngrok/ngrok
+    ports:
+      - 4040:4040
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    command: http atlantis:4141
+  atlantis:
+    image: ghcr.io/runatlantis/atlantis
+    ports:
+      - 4141:4141
+    environment:
+      AWS_CONFIG_FILE: '/root/.aws/config'
+      AWS_PROFILE: '${AWS_PROFILE}'
+      DEFAULT_CONFTEST_VERSION: '${DEFAULT_CONFTEST_VERSION}'
+      ATLANTIS_ATLANTIS_URL: '${URL}'
+      ATLANTIS_GH_USER: '${USERNAME}'
+      ATLANTIS_GH_TOKEN: '${TOKEN}'
+      ATLANTIS_GH_WEBHOOK_SECRET: '${SECRET}'
+      ATLANTIS_REPO_ALLOWLIST: '${REPO_ALLOWLIST}'
+      ATLANTIS_REPO_CONFIG: '${REPO_CONFIG}'
+    volumes:
+      - $PWD/config/:/config/
+      - $HOME/.aws:/$HOME/.aws:ro

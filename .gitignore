@@ -1,4 +1,12 @@
+<<<<<<< Updated upstream
 .env
+=======
+atlantis
+*.env
+*.tar.gz*
+ngrok.env
+*tfplan
+>>>>>>> Stashed changes
 
 # Local .terraform directories
 **/.terraform/*

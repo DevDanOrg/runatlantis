@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:security/Makefile
 ENV := $(PWD)/../.env
 include $(ENV)
 
@@ -9,18 +10,24 @@ init:
 	-backend-config="region=$(TF_AWS_REGION)" \
 	-backend-config="key=$(TF_S3_BUCKET_KEY)" \
 	-backend-config="dynamodb_table=$(TF_DYNAMODB_TABLE)"
+=======
+.PHONY: atlantis-init atlantis-apply atlantis-plan clean-state validate
+
+atlantis-init:
+	terraform init -input=false
+>>>>>>> Stashed changes:Makefile
 
 validate:
 	terraform validate
 
-plan: validate
-	env AWS_PROFILE=$(TF_AWS_PROFILE) terraform plan
+atlantis-plan: validate
+	rm -f tfplan && terraform plan -out=tfplan > /dev/null && terraform show tfplan
 
-apply:
-	env AWS_PROFILE=$(TF_AWS_PROFILE) terraform apply 
+atlantis-apply:
+	terraform tfplan 
 
 upgrade-provider: load-env clean-state
-	env AWS_PROFILE=$(TF_AWS_PROFILE) terraform init -input=false -upgrade
+	terraform init -input=false -upgrade
 
 clean-state:
 	rm -rf .terraform terraform.tfstate
