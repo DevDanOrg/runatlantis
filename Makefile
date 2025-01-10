@@ -1,14 +1,10 @@
-ENV := $(PWD)/../.env
-include $(ENV)
+# ENV := $(PWD)/../.env
+# include $(ENV)
 
 .PHONY: init apply plan clean-state validate
 
 init:
-	env AWS_PROFILE=$(TF_AWS_PROFILE) terraform init -input=false \
-	-backend-config="bucket=$(TF_S3_BUCKET_NAME)" \
-	-backend-config="region=$(TF_AWS_REGION)" \
-	-backend-config="key=$(TF_S3_BUCKET_KEY)" \
-	-backend-config="dynamodb_table=$(TF_DYNAMODB_TABLE)"
+	env AWS_PROFILE=$(TF_AWS_PROFILE) terraform init -input=false
 
 validate:
 	terraform validate

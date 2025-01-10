@@ -1,4 +1,7 @@
-.env
+atlantis
+*.env
+*.tar.gz*
+ngrok.env
 
 # Local .terraform directories
 **/.terraform/*
