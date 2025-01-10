@@ -11,7 +11,7 @@ services:
     ports:
       - 4141:4141
     environment:
-      AWS_CONFIG_FILE: '/root/.aws/config'
+      AWS_CONFIG_FILE: '$HOME/.aws/config'
       AWS_PROFILE: '${AWS_PROFILE}'
       DEFAULT_CONFTEST_VERSION: '${DEFAULT_CONFTEST_VERSION}'
       ATLANTIS_ATLANTIS_URL: '${URL}'
@@ -21,5 +21,5 @@ services:
       ATLANTIS_REPO_ALLOWLIST: '${REPO_ALLOWLIST}'
       ATLANTIS_REPO_CONFIG: '${REPO_CONFIG}'
     volumes:
-      - $PWD/config/:/config/
-      - $HOME/.aws:/$HOME/.aws:ro
+      - $HOME/.aws:$HOME/.aws:ro
+      - $PWD/repos.yaml:$HOME/repos.yaml

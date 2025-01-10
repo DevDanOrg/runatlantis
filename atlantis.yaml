@@ -13,3 +13,11 @@ projects:
       - '*.tfvars'
   apply_requirements: [approved, mergeable]
   workflow: makeworkflow
+workflows:
+  makeworkflow:
+    plan:
+      steps:
+        - run: make clean-state atlantis-init atlantis-plan
+    apply:
+      steps:
+        - run: make atlantis-init atlantis-apply
