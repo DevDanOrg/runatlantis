@@ -13,6 +13,7 @@ services:
     environment:
       AWS_CONFIG_FILE: '$HOME/.aws/config'
       AWS_PROFILE: '${AWS_PROFILE}'
+      AWS_DEFAULT_REGION: us-east-1
       DEFAULT_CONFTEST_VERSION: '${DEFAULT_CONFTEST_VERSION}'
       ATLANTIS_ATLANTIS_URL: '${URL}'
       ATLANTIS_GH_USER: '${USERNAME}'
@@ -20,6 +21,8 @@ services:
       ATLANTIS_GH_WEBHOOK_SECRET: '${SECRET}'
       ATLANTIS_REPO_ALLOWLIST: '${REPO_ALLOWLIST}'
       ATLANTIS_REPO_CONFIG: '${REPO_CONFIG}'
+      ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
+      ATLANTIS_EMOJI_REACTION: eyes
     volumes:
-      - $HOME/.aws:$HOME/.aws:ro
+      - ~/.aws:/home/atlantis/.aws:ro
       - $PWD/repos.yaml:$HOME/repos.yaml
